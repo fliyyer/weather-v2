@@ -5,6 +5,7 @@ import WeatherSkeleton from "../components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import { useForecastQuery, useReverseGeocdeQuery, useWeatherQuery } from "../hooks/use-weather";
 import CurrentWeather from "../components/current-weather";
+import HourlyTemperature from "../components/hourly-tempertaure";
 
 
 const WeatherDashboard = () => {
@@ -101,10 +102,9 @@ const WeatherDashboard = () => {
       </div>
 
       <div className="grid gap-6">
-        <div>
+        <div className="flex flex-col lg:flex-row gap-4">
           <CurrentWeather data={weatherQuery.data} locationName={locationName} />
-          {/* curent weather */}
-          {/* hourly temp */}
+          <HourlyTemperature data={forecastQuery.data} />
         </div>
 
         <div>
