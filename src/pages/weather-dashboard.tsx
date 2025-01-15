@@ -6,6 +6,7 @@ import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import { useForecastQuery, useReverseGeocdeQuery, useWeatherQuery } from "../hooks/use-weather";
 import CurrentWeather from "../components/current-weather";
 import HourlyTemperature from "../components/hourly-tempertaure";
+import { WeatherDetails } from "../components/weather-details";
 
 
 const WeatherDashboard = () => {
@@ -89,7 +90,6 @@ const WeatherDashboard = () => {
 
   return (
     <div className="space-y-4">
-      {/* fav city */}
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button
@@ -106,9 +106,8 @@ const WeatherDashboard = () => {
           <CurrentWeather data={weatherQuery.data} locationName={locationName} />
           <HourlyTemperature data={forecastQuery.data} />
         </div>
-
         <div>
-          {/* details */}
+          <WeatherDetails data={weatherQuery.data} />
           {/* forecast */}
         </div>
       </div>
