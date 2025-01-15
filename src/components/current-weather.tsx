@@ -86,8 +86,6 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
             </div>
           </div>
         </div>
-
-
       </CardContent>
     </Card>
 

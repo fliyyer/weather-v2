@@ -25,6 +25,7 @@ class WeatherAPI {
       lat: lat.toString(),
       lon: lon.toString(),
       units: API_CONFIG.DEFAULT_PARAMS.units,
+      lang: API_CONFIG.DEFAULT_PARAMS.lang
     });
 
     return this.fetchData<WeatherData>(url)
@@ -36,6 +37,7 @@ class WeatherAPI {
       lat: lat.toString(),
       lon: lon.toString(),
       units: API_CONFIG.DEFAULT_PARAMS.units,
+      lang: API_CONFIG.DEFAULT_PARAMS.lang
     });
 
     return this.fetchData<ForecastData>(url)
@@ -46,7 +48,7 @@ class WeatherAPI {
     const url = this.createUrl(`${API_CONFIG.GEO}/reverse`, {
       lat: lat.toString(),
       lon: lon.toString(),
-      limit: 1
+      limit: 1,
     });
 
     return this.fetchData<GeocodingResponse[]>(url)

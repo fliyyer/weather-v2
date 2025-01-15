@@ -7,6 +7,7 @@ import { useForecastQuery, useReverseGeocdeQuery, useWeatherQuery } from "../hoo
 import CurrentWeather from "../components/current-weather";
 import HourlyTemperature from "../components/hourly-tempertaure";
 import { WeatherDetails } from "../components/weather-details";
+import { WeatherForecast } from "../components/weather-forecast";
 
 
 const WeatherDashboard = () => {
@@ -91,7 +92,7 @@ const WeatherDashboard = () => {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold tracking-tight">My Location</h1>
+        <h1 className="text-xl font-bold tracking-tight">Lokasi Saat Ini</h1>
         <Button
           variant={"outline"}
           size={"icon"}
@@ -106,9 +107,9 @@ const WeatherDashboard = () => {
           <CurrentWeather data={weatherQuery.data} locationName={locationName} />
           <HourlyTemperature data={forecastQuery.data} />
         </div>
-        <div>
+        <div className="grid gap-6 md:grid-cols-2 items-start">
           <WeatherDetails data={weatherQuery.data} />
-          {/* forecast */}
+          <WeatherForecast data={forecastQuery.data} />
         </div>
       </div>
     </div>
