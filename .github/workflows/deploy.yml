@@ -20,11 +20,12 @@ jobs:
         env:
           VITE_OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
 
-      - name: Deploy to FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      - name: Deploy to Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/
           server-dir: /
+          timeout: 60000
