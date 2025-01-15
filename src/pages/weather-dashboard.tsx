@@ -3,7 +3,7 @@ import { Button } from "../components/ui/button"
 import { useGeolocation } from "../hooks/use-geolocation"
 import WeatherSkeleton from "../components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
-import { useForecastQuery, useReverseGeocdeQuery, useWeatherQuery } from "../hooks/use-weather";
+import { useForecastQuery, useReverseGeocdeQuery, useWeatherQuery } from "../hooks/use-weather.ts";
 import CurrentWeather from "../components/current-weather";
 import HourlyTemperature from "../components/hourly-tempertaure";
 import { WeatherDetails } from "../components/weather-details";
