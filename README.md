@@ -49,3 +49,4 @@ export default tseslint.config({
 })
 ```
 # weather-v2
+React
