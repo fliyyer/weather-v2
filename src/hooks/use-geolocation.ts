@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { Coordinates } from "../api/types"
 
 interface GeolocationState {
-  coordinates: Coordinates | null,
-  error: string | null
-  isLoading: boolean
+  coordinates: Coordinates | null;
+  error: string | null;
+  isLoading: boolean;
 }
 
 export function useGeolocation() {
@@ -20,7 +20,7 @@ export function useGeolocation() {
     if (!navigator.geolocation) {
       setLocationData({
         coordinates: null,
-        error: "Geolocation is not supported by this browser.",
+        error: "Geolokasi tidak didukung oleh browser ini.",
         isLoading: false
       })
       return;
@@ -41,16 +41,16 @@ export function useGeolocation() {
       switch (error.code) {
         case error.PERMISSION_DENIED:
           errorMessage =
-            "Location permission denied. Please enable location access.";
+            "Izin lokasi ditolak. Harap aktifkan akses lokasi.";
           break;
         case error.POSITION_UNAVAILABLE:
-          errorMessage = "Location information is unavailable.";
+          errorMessage = "Informasi lokasi tidak tersedia.";
           break;
         case error.TIMEOUT:
-          errorMessage = "Location request timed out.";
+          errorMessage = "Permintaan lokasi timed out.";
           break;
         default:
-          errorMessage = "An unknown error occurred.";
+          errorMessage = "Terjadi kesalahan yang tidak diketahui.";
       }
 
       setLocationData({

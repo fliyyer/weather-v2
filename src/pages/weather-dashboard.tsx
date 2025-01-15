@@ -29,37 +29,38 @@ const WeatherDashboard = () => {
       forecastQuery.refetch();
       locationQuery.refetch();
     }
-  }
+  };
 
   if (locationLoading) {
-    return <WeatherSkeleton />
+    return <WeatherSkeleton />;
   }
+
 
   if (locationError) {
     return (
       <Alert variant="destructive">
-        <AlertTriangle className="size-4" />
-        <AlertTitle>Location Error</AlertTitle>
+        <AlertTriangle className="h-4 w-4" />
+        <AlertTitle>Lokasi Tidak Ditemukan</AlertTitle>
         <AlertDescription className="flex flex-col gap-4">
           <p>{locationError}</p>
-          <Button onClick={getLocation} variant="outline" className="w-fit">
-            <MapPin className="size-4 mr-2" />
-            Enable Location
+          <Button variant="outline" onClick={getLocation} className="w-fit">
+            <MapPin className="mr-2 h-4 w-4" />
+            Aktifkan Akses Lokasi
           </Button>
         </AlertDescription>
       </Alert>
-    )
+    );
   }
 
   if (!coordinates) {
     return (
       <Alert variant="destructive">
-        <AlertTitle>Location Required</AlertTitle>
+        <AlertTitle>Izin Lokasi Diperlukan</AlertTitle>
         <AlertDescription className="flex flex-col gap-4">
-          <p>Please enable your location to see your local weather</p>
+          <p>Harap aktifkan lokasi Anda untuk melihat cuaca lokal Anda</p>
           <Button onClick={getLocation} variant="outline" className="w-fit">
             <MapPin className="size-4 mr-2" />
-            Enable Location
+            Aktifkan Akses Lokasi
           </Button>
         </AlertDescription>
       </Alert>
