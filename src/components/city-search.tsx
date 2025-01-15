@@ -50,18 +50,18 @@ export function CitySearch() {
         onClick={() => setOpen(true)}
       >
         <Search className="mr-2 h-4 w-4" />
-        Search cities...
+        Cari kota...
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
           <CommandInput
-            placeholder="Search cities..."
+            placeholder="Cari kota..."
             value={query}
             onValueChange={setQuery}
           />
           <CommandList>
             {query.length > 2 && !isLoading && (
-              <CommandEmpty>No cities found.</CommandEmpty>
+              <CommandEmpty>Kota tidak ditemukan.</CommandEmpty>
             )}
 
             {/* Favorites Section */}
@@ -88,22 +88,21 @@ export function CitySearch() {
               </CommandGroup>
             )}
 
-            {/* Search History Section */}
             {history.length > 0 && (
               <>
                 <CommandSeparator />
                 <CommandGroup>
                   <div className="flex items-center justify-between px-2 my-2">
                     <p className="text-xs text-muted-foreground">
-                      Recent Searches
+                      Pencarian Terakhir
                     </p>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => clearHistory.mutate()}
                     >
-                      <XCircle className="h-4 w-4" />
-                      Clear
+                      <XCircle className="size-4" />
+                      Hapus
                     </Button>
                   </div>
                   {history.map((item) => (
