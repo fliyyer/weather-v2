@@ -1,4 +1,4 @@
-name: Deploy to cPanel via FTP
+name: Weather App V2 Deployment
 
 on:
   push:
@@ -7,22 +7,22 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: |
-          npm install
-          npm run build
+        run: npm install
 
-      - name: Upload to cPanel
-        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp.besmartidn.com
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: build
+          local-dir: dist
           server-dir: /public_html
