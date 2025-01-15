@@ -49,6 +49,7 @@ class WeatherAPI {
       lat: lat.toString(),
       lon: lon.toString(),
       limit: 1,
+      local_names: 'id'
     });
 
     return this.fetchData<GeocodingResponse[]>(url)

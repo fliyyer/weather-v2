@@ -66,7 +66,7 @@ export function CitySearch() {
 
             {/* Favorites Section */}
             {favorites.length > 0 && (
-              <CommandGroup heading="Favorites">
+              <CommandGroup heading="Favorit">
                 {favorites.map((city) => (
                   <CommandItem
                     key={city.id}
@@ -133,7 +133,7 @@ export function CitySearch() {
             {/* Search Results */}
             <CommandSeparator />
             {locations && locations.length > 0 && (
-              <CommandGroup heading="Suggestions">
+              <CommandGroup heading="Saran">
                 {isLoading && (
                   <div className="flex items-center justify-center p-4">
                     <Loader2 className="h-4 w-4 animate-spin" />

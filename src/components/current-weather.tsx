@@ -24,7 +24,7 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="flex items-end gap-1">
-                <h2 className="font-bold text-2xl tracking-tighter">{locationName?.name}</h2>
+                <h2 className="font-bold text-2xl tracking-tighter">{locationName?.local_names.id}</h2>
                 {locationName?.state && (
                   <span className="text-muted-foreground">
                     , {locationName.state}
